@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Larry Wu</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+  <div class="app">
+    <!-- Navigation -->
+    <nav class="navbar">
+      <div class="navbar-container">
+        <a href="index.html" class="navbar-brand">Larry Wu</a>
+        <ul class="navbar-nav">
+          <li class="nav-item">
+            <a class="nav-link" href="index.html">Home</a>
+          </li>
+          <!-- <li class="nav-item">
+            <a class="nav-link" href="resume.html">Resume</a>
+          </li> -->
+          <li class="nav-item">
+            <a class="nav-link" href="projects.html">Projects</a>
+          </li>
+          <!-- <li class="nav-item">
+            <a class="nav-link" href="photography.html">Photography</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="paintings.html">Paintings</a>
+          </li> -->
+        </ul>
+      </div>
+    </nav>
+
+    <!-- Main content -->
+    <div class="container">
+      <div class="bio-container">
+        <div class="bio-content">
+          <h3 class="matrix-title">Overview</h3>
+          <div class="typewriter-container">
+            <h4 class="bio typewriter" data-text="Hi there, this is Larry from Toronto."></h4>
+            <h4 class="bio typewriter" data-text="I want to build machines that think. Instead of artifical intelligence, I think we should build alien intelligence. Machines that think differently. Machines that challenge what it means to be human."></h4>
+            <h4 class="bio typewriter" data-text="To do that, I was a VR software engineer at Qualcomm and a GPU silicon designer at AMD. Now, maybe something more..."></h4>
+          </div>
+        </div>
+        <div class="bio-image-container" style="position:relative;">
+          <img class="bio-image" src="images/MyPic.JPG" alt="Larry Wu">
+          <canvas id="matrix-overlay" style="position:absolute; left:0; top:0; width:100%; height:100%; pointer-events:none;"></canvas>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      const typewriters = document.querySelectorAll('.typewriter');
+
+      typewriters.forEach((element, index) => {
+        const text = element.getAttribute('data-text');
+        element.textContent = '';
+
+        setTimeout(() => {
+          let i = 0;
+          const type = () => {
+            if (i < text.length) {
+              element.textContent += text.charAt(i);
+              i++;
+              setTimeout(type, Math.random() * 20 + 10); // Faster typing speed (10-30ms instead of 30-80ms)
+            }
+          };
+          type();
+        }, index * 1000); // Reduced delay between lines (1s instead of 2s)
+      });
+
+      // Matrix effect for profile image
+      const img = document.querySelector('.bio-image');
+      const canvas = document.getElementById('matrix-overlay');
+      if (img && canvas) {
+        function resizeCanvas() {
+          canvas.width = img.clientWidth;
+          canvas.height = img.clientHeight;
+        }
+        resizeCanvas();
+        window.addEventListener('resize', resizeCanvas);
+
+        const ctx = canvas.getContext('2d');
+        const fontSize = 16;
+        const columns = Math.floor(canvas.width / fontSize);
+        const drops = Array(columns).fill(1);
+        function drawMatrix() {
+          ctx.clearRect(0, 0, canvas.width, canvas.height);
+          ctx.font = fontSize + "px 'Share Tech Mono', monospace";
+          ctx.fillStyle = 'rgba(0,255,70,0.8)';
+          for (let i = 0; i < drops.length; i++) {
+            const text = Math.random() > 0.5 ? '0' : '1';
+            ctx.fillText(text, i * fontSize, drops[i] * fontSize);
+            if (Math.random() > 0.975) {
+              drops[i] = 0;
+            }
+            drops[i]++;
+            if (drops[i] * fontSize > canvas.height) {
+              drops[i] = 0;
+            }
+          }
+        }
+        setInterval(drawMatrix, 60);
+      }
+    });
+  </script>
+</body>
+</html>

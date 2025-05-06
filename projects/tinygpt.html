@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TinyGPT - Larry Wu</title>
+  <link rel="stylesheet" href="../css/styles.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap" rel="stylesheet">
+  <style>
+    .description-container {
+      max-width: 1000px;
+      margin: 0 auto;
+      padding: 40px 20px;
+      text-align: left;
+      line-height: 1.6;
+    }
+    .project-header {
+      display: flex;
+      align-items: center;
+      margin-bottom: 30px;
+      padding-bottom: 20px;
+      border-bottom: 2px solid #eee;
+    }
+    .project-header img {
+      width: 4rem;
+      margin-right: 15px;
+    }
+    .project-header h3 {
+      font-size: 2rem;
+      margin: 0;
+      color: #333;
+    }
+    .card-container {
+      margin-bottom: 40px;
+    }
+    .card {
+      width: 100%;
+      border: 1px solid rgba(0,0,0,0.1);
+      border-radius: 8px;
+      margin-bottom: 25px;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+      transition: transform 0.2s ease;
+    }
+    .card:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    }
+    .card-header {
+      padding: 15px 20px;
+      background-color: #f8f9fa;
+      border-bottom: 1px solid rgba(0,0,0,0.1);
+      font-weight: 600;
+      font-size: 1.2rem;
+      border-radius: 8px 8px 0 0;
+    }
+    .card-body {
+      padding: 25px;
+      text-align: left;
+    }
+    .card img {
+      max-width: 70%;
+      height: auto;
+      display: block;
+      margin: 20px auto;
+      border-radius: 4px;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    }
+    .link {
+      color: #0066cc;
+      text-decoration: none;
+      transition: color 0.2s ease;
+    }
+    .link:hover {
+      color: #004499;
+      text-decoration: underline;
+    }
+    .repo-link {
+      display: flex;
+      align-items: center;
+      margin: 30px 0;
+      padding: 15px;
+      background-color: #f8f9fa;
+      border-radius: 8px;
+      transition: background-color 0.2s ease;
+    }
+    .repo-link:hover {
+      background-color: #e9ecef;
+    }
+    .repo-link img {
+      width: 32px;
+      margin-right: 15px;
+    }
+    .repo-link a {
+      font-size: 1.1rem;
+      font-weight: 500;
+    }
+    ol, ul {
+      padding-left: 40px;
+      margin: 15px 0;
+    }
+    li {
+      margin: 8px 0;
+      padding-left: 10px;
+    }
+    li ul, li ol {
+      padding-left: 30px;
+      margin: 8px 0;
+    }
+    p {
+      margin: 15px 0;
+    }
+    strong {
+      color: #333;
+    }
+    .resources-section {
+      margin-top: 20px;
+      padding: 15px;
+      background-color: #f8f9fa;
+      border-radius: 8px;
+    }
+    .resources-section p {
+      margin: 0 0 10px 0;
+      font-weight: 600;
+    }
+  </style>
+</head>
+<body>
+  <div class="app">
+    <!-- Navigation -->
+    <nav class="navbar">
+      <div class="navbar-container">
+        <a href="../index.html" class="navbar-brand">Larry Wu</a>
+        <ul class="navbar-nav">
+          <li class="nav-item">
+            <a class="nav-link" href="../index.html">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="../projects.html">Projects</a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+
+    <!-- TinyGPT Content -->
+    <div class="description-container">
+      <div class="project-header">
+        <img src="../images/projects/nn_icon.png" alt="TinyGPT Icon">
+        <h3>TinyGPT</h3>
+      </div>
+
+      <p>This project is a minimal GPT2 replica based on nanoGPT, trained and fine-tuned for Chinese Q&A. For more details and code, check out the repo below.</p>
+      <div class="repo-link">
+        <img src="https://img.icons8.com/fluent/144/000000/github.png" alt="GitHub Logo">
+        <a class="link" href="https://github.com/larrythwu/TinyGPT" target="_blank">TinyGPT</a>
+      </div>
+
+      <div class="card-container">
+        <div class="card">
+          <div class="card-header">Model & Dataset</div>
+          <div class="card-body">
+            <ul>
+              <li><strong>Model:</strong> GPT2 replica using PyTorch, 124M parameters</li>
+              <li><strong>Dataset:</strong> Huggingface wiki-zh (all Chinese Wikipedia, 1.9B tokens), fine-tuned with silk-road/Luotuo-QA-A-CoQA-Chinese (4M tokens)</li>
+              <li><strong>Q&A Format:</strong> Formatted as <code>&lt;|prompt|&gt;...&lt;|response|&gt;...&lt;|end|&gt;</code></li>
+            </ul>
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-header">Training & Hardware</div>
+          <div class="card-body">
+            <ul>
+              <li><strong>Hardware:</strong> Lambda Cloud 1xA1000 server</li>
+              <li><strong>Training:</strong> 12 hours (~$20)</li>
+              <li><strong>Reporting:</strong> WanDB</li>
+            </ul>
+            <img src="../images/projects/pretraining.png" alt="Training and Validation Loss Curve 1">
+            <div style="text-align:center; font-size:0.95em; color:#666; margin-bottom:10px;">Base Model Pretraining</div>
+            <img src="../images/projects/posttraining.png" alt="Training and Validation Loss Curve 2">
+            <div style="text-align:center; font-size:0.95em; color:#666;">Fine-tuning to ChatBot</div>
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-header">Evaluation: Conversation Examples</div>
+          <div class="card-body">
+            <div style="display: flex; gap: 32px; flex-wrap: wrap; align-items: flex-start;">
+              <ul style="flex: 1 1 300px; min-width: 220px; margin: 0;">
+                <li>历史上的唐朝是谁建立的？<br><strong>唐玄宗</strong></li>
+                <li>唐朝的首都是哪里？<br><strong>洛阳</strong></li>
+                <li>美国的首都是哪里?<br><strong>华盛顿特区</strong></li>
+                <li>中国的长城有多长?<br><strong>2,300公里</strong></li>
+                <li>孔子是谁？<br><strong>孔子</strong></li>
+                <li>鲸鱼是哺乳动物吗?<br><strong>是的</strong></li>
+                <li>熊猫的黑眼圈是天生的吗？<br><strong>是的</strong></li>
+                <li>澳大利亚的首都是哪个城市？<br><strong>悉尼</strong></li>
+                <li>谁是苹果公司的高级执行官，担任其CEO？<br><strong>史蒂芬·科里</strong></li>
+                <li>迪士尼乐园是在哪一年开幕的？<br><strong>1878</strong></li>
+              </ul>
+              <ul style="flex: 1 1 300px; min-width: 220px; margin: 0; color: #444;">
+                <li>Who founded the Tang Dynasty in history?<br><strong>Emperor Xuanzong of Tang</strong></li>
+                <li>What was the capital of the Tang Dynasty?<br><strong>Luoyang</strong></li>
+                <li>What is the capital of the United States?<br><strong>Washington, D.C.</strong></li>
+                <li>How long is the Great Wall of China?<br><strong>2,300 kilometers</strong></li>
+                <li>Who is Confucius?<br><strong>Confucius</strong></li>
+                <li>Is a whale a mammal?<br><strong>Yes</strong></li>
+                <li>Are a panda's black eye patches natural?<br><strong>Yes</strong></li>
+                <li>Which city is the capital of Australia?<br><strong>Sydney</strong></li>
+                <li>Who is the senior executive of Apple Inc., serving as its CEO?<br><strong>Stephen Curry</strong></li>
+                <li>In which year did Disneyland open?<br><strong>1878</strong></li>
+              </ul>
+            </div>
+            <div style="margin-top:16px; color:#888; font-size:0.95em; font-style:italic; text-align:left;">
+              Disclaimer: Some of these answers are hilariously incorrect (e.g., Stephen Curry as Apple CEO, Disneyland opening in 1878).
+            </div>
+          </div>
+        </div>
+        <div class="card">
+            <div class="card-header">Analysis</div>
+            <div class="card-body">
+              <p>The Q&A data (silk-road/Luotuo-QA-A-CoQA-Chinese) we used is mostly from GRE-style reading comprehension questions, many based on literature snippets rather than real-life articles. As a result, many responses are fictitious or not factually accurate.</p>
+            </div>
+          </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

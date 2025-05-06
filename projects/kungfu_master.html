@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>KungFu Master - Larry Wu</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/styles.css">
+  <style>
+    .description-container {
+      max-width: 1000px;
+      margin: 0 auto;
+      padding: 40px 20px;
+      text-align: left;
+      line-height: 1.6;
+    }
+    .project-header {
+      display: flex;
+      align-items: center;
+      margin-bottom: 30px;
+      padding-bottom: 20px;
+      border-bottom: 2px solid #eee;
+    }
+    .project-header img {
+      width: 4rem;
+      margin-right: 15px;
+    }
+    .project-header h3 {
+      font-size: 2rem;
+      margin: 0;
+      color: #333;
+    }
+    .card-container {
+      margin-bottom: 40px;
+    }
+    .card {
+      width: 100%;
+      border: 1px solid rgba(0,0,0,0.1);
+      border-radius: 8px;
+      margin-bottom: 25px;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+      transition: transform 0.2s ease;
+    }
+    .card:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    }
+    .card-header {
+      padding: 15px 20px;
+      background-color: #f8f9fa;
+      border-bottom: 1px solid rgba(0,0,0,0.1);
+      font-weight: 600;
+      font-size: 1.2rem;
+      border-radius: 8px 8px 0 0;
+    }
+    .card-body {
+      padding: 25px;
+      text-align: left;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    .video-container {
+      position: relative;
+      width: 100%;
+      max-width: 700px;
+      margin: 20px auto;
+      padding-bottom: 56.25%; /* 16:9 aspect ratio */
+      height: 0;
+      overflow: hidden;
+    }
+    .video-container iframe {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      border: none;
+    }
+    .technical-details {
+      background: #f8f9fa;
+      padding: 20px;
+      border-radius: 5px;
+      margin: 20px 0;
+      text-align: left;
+    }
+  </style>
+</head>
+<body>
+  <div class="app">
+    <!-- Navigation -->
+    <nav class="navbar">
+      <div class="navbar-container">
+        <a href="../index.html" class="navbar-brand">Larry Wu</a>
+        <ul class="navbar-nav">
+          <li class="nav-item">
+            <a class="nav-link" href="../index.html">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="../projects.html">Projects</a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+
+    <!-- Project Content -->
+    <div class="description-container">
+      <div class="project-header">
+        <img src="../images/projects/robotic_hand.png" alt="KungFu Master Icon">
+        <h3>KungFu Master</h3>
+      </div>
+
+      <p>Our Isaac Sim humanoid robot implementation features a physics-accurate model (1.34m tall) with carefully tuned joint stiffness/damping parameters across 20+ DOF. We utilize a PPO algorithm with a [400,200,100] MLP architecture for both actor and critic networks, training across 4,096 parallel environments.</p>
+      <p><strong>Key modifications:</strong></p>
+      <ul>
+        <li><strong>Custom Striking Reward</strong> - Prioritizes high-velocity arm movements while maintaining stability</li>
+        <li><strong>Specialized Observations</strong> - Includes limb velocities, stance balance, and body rotation metrics</li>
+        <li><strong>Training Parameters</strong> - 5e-4 learning rate, 0.99 discount factor, 32-step rollouts with 5 learning epochs</li>
+        <li><strong>Termination Conditions</strong> - Episodes end at 16 seconds, height below 0.8m, or balance loss exceeding 0.3</li>
+      </ul>
+      <p>The result is a humanoid that can perform dynamic kung fu striking techniques with proper balance and form, enabled by our reward-weighted combination of striking power and stability.</p>
+      <div style="margin-bottom: 40px;"></div>
+
+      <div class="card-container">
+        <div class="card">
+          <div class="card-header">Training Process (Showing 100/4096)</div>
+          <div class="card-body">
+            <div class="video-container">
+              <iframe src="https://www.youtube.com/embed/Q0nNFI-OzB0?si=_KRd1FY5YywT2eD-" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+            </div>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-header">Results - No Energy Constraints</div>
+          <div class="card-body">
+            <div class="video-container">
+              <iframe src="https://www.youtube.com/embed/KHTLcNALynM?si=UJe4uW4ZdTZNifJA" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+            </div>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-header">Results - With Energy Constraints</div>
+          <div class="card-body">
+            <div class="video-container">
+              <iframe src="https://www.youtube.com/embed/VFZalwepYEo?si=wyIiimrRGA80N34P" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

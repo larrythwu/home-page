@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sumo Robot - Larry Wu</title>
+  <link rel="stylesheet" href="../css/styles.css">
+  <style>
+    .description-container {
+      max-width: 1000px;
+      margin: 0 auto;
+      padding: 20px;
+      text-align: center;
+    }
+    .project-header {
+      margin-bottom: 20px;
+    }
+    .carousel {
+      max-width: 800px;
+      margin: 0 auto;
+      overflow: hidden;
+      position: relative;
+    }
+    .carousel-inner {
+      display: flex;
+      transition: transform 0.5s ease;
+    }
+    .carousel-item {
+      min-width: 100%;
+    }
+    .carousel img {
+      width: 100%;
+      height: auto;
+      border-radius: 5px;
+    }
+    .carousel-control {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      background: rgba(0,0,0,0.5);
+      color: white;
+      border: none;
+      padding: 10px 15px;
+      cursor: pointer;
+      font-size: 18px;
+      border-radius: 5px;
+    }
+    .carousel-control.prev {
+      left: 10px;
+    }
+    .carousel-control.next {
+      right: 10px;
+    }
+    .project-description {
+      margin-top: 30px;
+      text-align: left;
+    }
+    @media (max-width: 768px) {
+      .carousel {
+        max-width: 100%;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="app">
+    <!-- Navigation -->
+    <nav class="navbar">
+      <div class="navbar-container">
+        <a href="../index.html" class="navbar-brand">Larry Wu</a>
+        <ul class="navbar-nav">
+          <li class="nav-item">
+            <a class="nav-link" href="../index.html">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="../resume.html">Resume</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="../projects.html">Projects</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="../photography.html">Photography</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="../paintings.html">Paintings</a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+    
+    <!-- SumoRobot Content -->
+    <div class="description-container">
+      <div class="project-header">
+        <h2>Sumo Robot</h2>
+      </div>
+
+      <div class="carousel">
+        <div class="carousel-inner">
+          <div class="carousel-item">
+            <img src="../images/projects/sumorobot/sumo1.jpg" alt="Sumo Robot 1">
+          </div>
+          <div class="carousel-item">
+            <img src="../images/projects/sumorobot/sumo2.jpg" alt="Sumo Robot 2">
+          </div>
+          <div class="carousel-item">
+            <img src="../images/projects/sumorobot/sumo3.jpg" alt="Sumo Robot 3">
+          </div>
+        </div>
+        <button class="carousel-control prev">❮</button>
+        <button class="carousel-control next">❯</button>
+      </div>
+
+      <div class="project-description">
+        <h3>Project Overview</h3>
+        <p>
+          This Sumo Robot was built for the Sumo Robotics Club at the University of Toronto. The project involved designing, building, and programming a robot capable of competing in sumo-style competitions where two robots attempt to push each other out of a circular ring.
+        </p>
+        <h3>Features</h3>
+        <ul>
+          <li>Arduino-based control system for precise movement and detection</li>
+          <li>3D-printed custom chassis designed in Fusion360 for durability and optimal weight distribution</li>
+          <li>IR sensors for edge detection to prevent falling out of the ring</li>
+          <li>Ultrasonic sensors for opponent detection</li>
+          <li>High-torque motors for quick movements and pushing power</li>
+        </ul>
+        <h3>Technologies Used</h3>
+        <p>
+          Arduino, Fusion360 (3D modeling), C/C++ programming, Infrared and ultrasonic sensors
+        </p>
+        <h3>Challenges and Solutions</h3>
+        <p>
+          One of the main challenges was balancing speed and stability. The robot needed to be fast enough to respond quickly to opponent movements, but stable enough to provide the pushing force needed to win matches. This was solved through iterative design improvements and careful weight distribution in the chassis.
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      let currentSlide = 0;
+      const slides = document.querySelectorAll('.carousel-item');
+      const totalSlides = slides.length;
+      const carouselInner = document.querySelector('.carousel-inner');
+      
+      // Set initial position
+      function updateCarousel() {
+        carouselInner.style.transform = `translateX(-${currentSlide * 100}%)`;
+      }
+      
+      // Prev button
+      document.querySelector('.carousel-control.prev').addEventListener('click', function() {
+        currentSlide = (currentSlide - 1 + totalSlides) % totalSlides;
+        updateCarousel();
+      });
+      
+      // Next button
+      document.querySelector('.carousel-control.next').addEventListener('click', function() {
+        currentSlide = (currentSlide + 1) % totalSlides;
+        updateCarousel();
+      });
+      
+      // Auto-advance carousel
+      setInterval(function() {
+        currentSlide = (currentSlide + 1) % totalSlides;
+        updateCarousel();
+      }, 5000);
+    });
+  </script>
+</body>
+</html> 

@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Projects - Larry Wu</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css">
+  <style>
+    .projects-header {
+      text-align: left;
+      margin: 40px 0;
+      padding: 0 20px;
+      border-bottom: 2px solid #000;
+      display: inline-block;
+    }
+    .projects-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 30px;
+      padding: 20px;
+    }
+    .project-card {
+      background: #fff;
+      color: #000;
+      border: 1px solid rgba(0,0,0,0.1);
+      padding: 20px;
+      transition: all 0.3s ease;
+    }
+    .project-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    }
+    .project-img-container {
+      background: #f8f9fa;
+      padding: 20px;
+      margin: -20px -20px 20px -20px;
+      border-bottom: 1px solid rgba(0,0,0,0.1);
+    }
+    .project-img-container img {
+      width: 60px;
+      height: 60px;
+      filter: grayscale(100%);
+    }
+    .project-title {
+      font-size: 1.2rem;
+      margin: 0 0 10px 0;
+      color: #000;
+    }
+    .project-tools {
+      font-size: 0.8rem;
+      color: #666;
+      margin: 0 0 15px 0;
+    }
+    .project-text {
+      font-size: 0.9rem;
+      line-height: 1.4;
+      margin: 0 0 20px 0;
+      color: #333;
+    }
+    .project-btn {
+      display: inline-block;
+      padding: 8px 16px;
+      background: #f8f9fa;
+      color: #000;
+      text-decoration: none;
+      border: 1px solid rgba(0,0,0,0.1);
+      font-size: 0.9rem;
+      transition: all 0.3s ease;
+    }
+    .project-btn:hover {
+      background: #000;
+      color: #fff;
+    }
+    @media (max-width: 768px) {
+      .projects-container {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="app">
+    <!-- Navigation -->
+    <nav class="navbar">
+      <div class="navbar-container">
+        <a href="index.html" class="navbar-brand">Larry Wu</a>
+        <ul class="navbar-nav">
+          <li class="nav-item">
+            <a class="nav-link" href="index.html">Home</a>
+          </li>
+          <!-- <li class="nav-item">
+            <a class="nav-link" href="resume.html">Resume</a>
+          </li> -->
+          <li class="nav-item">
+            <a class="nav-link" href="projects.html">Projects</a>
+          </li>
+          <!-- <li class="nav-item">
+            <a class="nav-link" href="photography.html">Photography</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="paintings.html">Paintings</a>
+          </li> -->
+        </ul>
+      </div>
+    </nav>
+
+    <!-- Projects Content -->
+    <div class="container">
+      <h2 class="projects-header">Projects</h2>
+      <div class="projects-container">
+        <div class="project-card">
+          <div class="project-img-container">
+            <img src="images/projects/robotic_hand.png" alt="KungFu Master">
+          </div>
+          <div class="project-body">
+            <h5 class="project-title">KungFu Master</h5>
+            <p class="project-tools">Isaac Sim, PyTorch, Reinforcement Learning</p>
+            <p class="project-text">
+              A reinforcement learning agent trained to perform kung fu moves in a physics-based environment.
+            </p>
+            <a href="projects/kungfu_master.html" class="project-btn">More Detail</a>
+          </div>
+        </div>
+
+        <div class="project-card">
+          <div class="project-img-container">
+            <img src="images/projects/nn_icon.png" alt="TinyGPT">
+          </div>
+          <div class="project-body">
+            <h5 class="project-title">TinyGPT</h5>
+            <p class="project-tools">PyTorch, LLM, ChatBot</p>
+            <p class="project-text">
+              Minimal GPT2 replica for Chinese Q&A, trained on wiki-zh and fine-tuned on Q&A datasets.
+            </p>
+            <a href="projects/tinygpt.html" class="project-btn">More Detail</a>
+          </div>
+        </div>
+
+        <div class="project-card">
+          <div class="project-img-container">
+            <img src="images/projects/terminal_icon.png" alt="MiniOS">
+          </div>
+          <div class="project-body">
+            <h5 class="project-title">
+              MiniOS
+            </h5>
+            <p class="project-tools">C, x86 Assembly</p>
+            <p class="project-text">
+              A multi-threaded kernel that can run on a QEMU x86 emulator.
+            </p>
+            <a href="projects/mini_os.html" class="project-btn">More Detail</a>
+          </div>
+        </div>
+
+        <!-- <div class="project-card">
+          <div class="project-img-container">
+            <img src="https://cdn.worldvectorlogo.com/logos/google-issue-tracker.svg" alt="Issue Tracker">
+          </div>
+          <div class="project-body">
+            <h5 class="project-title">
+              Issue Tracker
+            </h5>
+            <p class="project-tools">React.js, Express.js, MongoDB, JavaScript</p>
+            <p class="project-text">
+              A full-stack online to-do list application with user authentication.
+            </p>
+            <a href="https://issuetracker.herokuapp.com/" target="_blank" class="project-btn">Go to Webpage</a>
+          </div>
+        </div> -->
+
+        <div class="project-card">
+          <div class="project-img-container">
+            <img src="images/projects/dijkstras-algorithm.svg" alt="Interactive Path Finding">
+          </div>
+          <div class="project-body">
+            <h5 class="project-title">
+              Interactive Path Finding
+            </h5>
+            <p class="project-tools">React.js, JavaScript, Dijkstra's algorithm</p>
+            <p class="project-text">
+              A web application that uses the Dijkstra's algorithm to find the shortest path from the source to the destination.
+            </p>
+            <a href="https://larrythwu.github.io/interactive_path_finding/" target="_blank" class="project-btn">Go to Webpage</a>
+          </div>
+        </div>
+
+        <div class="project-card">
+          <div class="project-img-container">
+            <img src="images/projects/sorting_icon.png" alt="Sorting Algorithm Visualization">
+          </div>
+          <div class="project-body">
+            <h5 class="project-title">Sorting Algorithm Visualization</h5>
+            <p class="project-tools">React.js, JavaScript</p>
+            <p class="project-text">
+              A web application that visualizes common sorting algorithms such as, merge sort, quick sort, heap sort, and bubble sort.
+            </p>
+            <a href="https://larrythwu.github.io/Sorting-Visualization/" target="_blank" class="project-btn">Go to Webpage</a>
+          </div>
+        </div>
+
+        <div class="project-card">
+          <div class="project-img-container">
+            <img src="images/projects/map_icon.png" alt="My Map">
+          </div>
+          <div class="project-body">
+            <h5 class="project-title">My Map</h5>
+            <p class="project-tools">C++, Linux Ubuntu</p>
+            <p class="project-text">
+              Navigation software written in C++ runs on Linux Ubuntu. The data is loaded from the OpenStreetMap API and displayed using the EzGL library. Features include live weather report (DarkSky API), dark mode, location searching, and step-by-step navigation guidance.
+            </p>
+            <a href="projects/mymap.html" class="project-btn">More Detail</a>
+          </div>
+        </div>
+
+        <div class="project-card">
+          <div class="project-img-container">
+            <img src="images/projects/mnist.png" alt="Handwritten Digit Recognition">
+          </div>
+          <div class="project-body">
+            <h5 class="project-title">Online Handwritten Digit Recognizer</h5>
+            <p class="project-tools">Tensorflow.js, React.js, JavaScript</p>
+            <p class="project-text">
+              A web application that trains a machine learning model in real time with the MNIST database that can recognize the digit drawn on the canvas.
+            </p>
+            <a href="https://larrythwu.github.io/digit_recognizer/" target="_blank" class="project-btn">Go to Webpage</a>
+          </div>
+        </div>
+
+        <div class="project-card">
+          <div class="project-img-container">
+            <img src="images/projects/arcade_icon.png" alt="ARM Assembly Arcade Game">
+          </div>
+          <div class="project-body">
+            <h5 class="project-title">ARM Assembly Arcade Game</h5>
+            <p class="project-tools">C, ARMv7 assembly, FPGA</p>
+            <p class="project-text">
+              A two-player arcade game written in C and ARM Assembly. The game runs on a DE1-SoC FPGA, controlled using a PS/2 keyboard, and displayed on a VGA.
+            </p>
+            <a href="projects/doomslayer.html" class="project-btn">More Detail</a>
+          </div>
+        </div>
+
+        <div class="project-card">
+          <div class="project-img-container">
+            <img src="images/projects/traffic_light_icon.png" alt="Verilog Traffic Light Simulator">
+          </div>
+          <div class="project-body">
+            <h5 class="project-title">Verilog Traffic Light Simulator</h5>
+            <p class="project-tools">Verilog, FPGA</p>
+            <p class="project-text">
+              A physical model that simulates the traffic lights at an intersection using DE1-SoC FPGA and a PS/2 keyboard. The logic is written in Verilog and the LEDs are controlled by the FPGA, the keyboard acts as the pedestrian call button.
+            </p>
+            <a href="projects/trafficlight.html" class="project-btn">More Detail</a>
+          </div>
+        </div>
+
+        <div class="project-card">
+          <div class="project-img-container">
+            <img src="images/projects/arduino_icon.png" alt="Sumo Robot">
+          </div>
+          <div class="project-body">
+            <h5 class="project-title">Sumo Robot</h5>
+            <p class="project-tools">Arduino, Fusion360</p>
+            <p class="project-text">
+              Built for the Sumo Robotics Club at U of T. The sensors and motors are controlled by Arduino and the body is designed in Fusion360 and 3D printed.
+            </p>
+            <a href="projects/sumorobot.html" class="project-btn">More Detail</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

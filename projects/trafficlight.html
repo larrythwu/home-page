@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Traffic Light Simulator - Larry Wu</title>
+  <link rel="stylesheet" href="../css/styles.css">
+  <style>
+    .description-container {
+      max-width: 1000px;
+      margin: 0 auto;
+      padding: 20px;
+      text-align: center;
+    }
+    .project-header {
+      margin-bottom: 20px;
+    }
+    .carousel {
+      max-width: 800px;
+      margin: 0 auto;
+      overflow: hidden;
+      position: relative;
+    }
+    .carousel-inner {
+      display: flex;
+      transition: transform 0.5s ease;
+    }
+    .carousel-item {
+      min-width: 100%;
+    }
+    .carousel img {
+      width: 100%;
+      height: auto;
+      border-radius: 5px;
+    }
+    .carousel-control {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      background: rgba(0,0,0,0.5);
+      color: white;
+      border: none;
+      padding: 10px 15px;
+      cursor: pointer;
+      font-size: 18px;
+      border-radius: 5px;
+    }
+    .carousel-control.prev {
+      left: 10px;
+    }
+    .carousel-control.next {
+      right: 10px;
+    }
+    .project-description {
+      margin-top: 30px;
+      text-align: left;
+    }
+    @media (max-width: 768px) {
+      .carousel {
+        max-width: 100%;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="app">
+    <!-- Navigation -->
+    <nav class="navbar">
+      <div class="navbar-container">
+        <a href="../index.html" class="navbar-brand">Larry Wu</a>
+        <ul class="navbar-nav">
+          <li class="nav-item">
+            <a class="nav-link" href="../index.html">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="../resume.html">Resume</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="../projects.html">Projects</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="../photography.html">Photography</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="../paintings.html">Paintings</a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+    
+    <!-- TrafficLight Content -->
+    <div class="description-container">
+      <div class="project-header">
+        <h2>Verilog Traffic Light Simulator</h2>
+      </div>
+
+      <div class="carousel">
+        <div class="carousel-inner">
+          <div class="carousel-item">
+            <img src="../images/projects/trafficlight/traffic1.jpg" alt="Traffic Light 1">
+          </div>
+          <div class="carousel-item">
+            <img src="../images/projects/trafficlight/traffic2.jpg" alt="Traffic Light 2">
+          </div>
+          <div class="carousel-item">
+            <img src="../images/projects/trafficlight/traffic3.jpg" alt="Traffic Light 3">
+          </div>
+        </div>
+        <button class="carousel-control prev">❮</button>
+        <button class="carousel-control next">❯</button>
+      </div>
+
+      <div class="project-description">
+        <h3>Project Overview</h3>
+        <p>
+          This project is a physical model that simulates traffic lights at an intersection using DE1-SoC FPGA and a PS/2 keyboard. The logic is implemented in Verilog, and the LEDs on the FPGA are used to represent the traffic lights. The keyboard acts as the pedestrian call button.
+        </p>
+        <h3>Features</h3>
+        <ul>
+          <li>Simulation of a 4-way intersection with traffic lights</li>
+          <li>Pedestrian crossing button functionality</li>
+          <li>Realistic timing sequences for traffic flow</li>
+          <li>Emergency vehicle override mode</li>
+        </ul>
+        <h3>Technologies Used</h3>
+        <p>
+          Verilog, DE1-SoC FPGA, PS/2 Keyboard Interface
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      let currentSlide = 0;
+      const slides = document.querySelectorAll('.carousel-item');
+      const totalSlides = slides.length;
+      const carouselInner = document.querySelector('.carousel-inner');
+      
+      // Set initial position
+      function updateCarousel() {
+        carouselInner.style.transform = `translateX(-${currentSlide * 100}%)`;
+      }
+      
+      // Prev button
+      document.querySelector('.carousel-control.prev').addEventListener('click', function() {
+        currentSlide = (currentSlide - 1 + totalSlides) % totalSlides;
+        updateCarousel();
+      });
+      
+      // Next button
+      document.querySelector('.carousel-control.next').addEventListener('click', function() {
+        currentSlide = (currentSlide + 1) % totalSlides;
+        updateCarousel();
+      });
+      
+      // Auto-advance carousel
+      setInterval(function() {
+        currentSlide = (currentSlide + 1) % totalSlides;
+        updateCarousel();
+      }, 5000);
+    });
+  </script>
+</body>
+</html> 

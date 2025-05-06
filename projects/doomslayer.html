@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Doom Slayer - Larry Wu</title>
+  <link rel="stylesheet" href="../css/styles.css">
+  <style>
+    .description-container {
+      max-width: 1000px;
+      margin: 0 auto;
+      padding: 20px;
+      text-align: center;
+    }
+    .project-header {
+      margin-bottom: 20px;
+    }
+    iframe {
+      max-width: 100%;
+      margin-bottom: 20px;
+    }
+    img {
+      max-width: 100%;
+      margin-bottom: 20px;
+    }
+    .image-container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 20px;
+      margin: 30px auto;
+    }
+    .image-container img {
+      max-width: 45%;
+    }
+    @media (max-width: 768px) {
+      .image-container img {
+        max-width: 100%;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="app">
+    <!-- Navigation -->
+    <nav class="navbar">
+      <div class="navbar-container">
+        <a href="../index.html" class="navbar-brand">Larry Wu</a>
+        <ul class="navbar-nav">
+          <li class="nav-item">
+            <a class="nav-link" href="../index.html">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="../resume.html">Resume</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="../projects.html">Projects</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="../photography.html">Photography</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="../paintings.html">Paintings</a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+    
+    <!-- DoomSlayer Content -->
+    <div class="description-container">
+      <div class="project-header">
+        <h2>ARM Assembly Arcade Game</h2>
+      </div>
+
+      <iframe
+        width="560"
+        height="400"
+        src="https://www.youtube.com/embed/XDjh_E4bBHg"
+        frameborder="0"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+        allowfullscreen="true"
+      ></iframe>
+      
+      <img src="../images/projects/doomslayer/Description.png" alt="Game Description">
+      
+      <div class="image-container">
+        <img src="../images/projects/doomslayer/GameControl.png" alt="Game Controls">
+        <img src="../images/projects/doomslayer/GameScreenshot.png" alt="Game Screenshot">
+      </div>
+    </div>
+  </div>
+</body>
+</html> 
